@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | LaunchPad</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/main.js"></script>
+</head>
+
+<body>
+    <header class="site-header"><a class="logo" href="index.html">Launch<span>Pad</span></a><button class="menu-toggle"
+            aria-label="Toggle navigation">☰</button>
+        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a
+                href="projects.html">Projects</a><a class="active" href="contact.html">Contact</a></nav>
+    </header>
+    <main>
+        <section class="page-hero">
+            <p class="eyebrow">SAY HELLO</p>
+            <h1>Let's make<br><span>something useful.</span></h1>
+            <p>This demo form works locally in your browser and shows a success message. It does not send data to a
+                server.</p>
+        </section>
+        <section class="section contact-layout">
+            <div class="contact-note">
+                <p class="eyebrow">GET IN TOUCH</p>
+                <h2>Have a practice idea?</h2>
+                <p>Try changing this page, adding form validation, or creating a workflow that checks the website files
+                    before deployment.</p>
+                <div class="contact-detail"><span>✉</span>
+                    <div><strong>Email</strong>
+                        <p>hello@example.test</p>
+                    </div>
+                </div>
+                <div class="contact-detail"><span>⌘</span>
+                    <div><strong>GitHub practice</strong>
+                        <p>Commit small changes often.</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contact-form"><label for="name">Your name</label><input id="name" name="name"
+                    type="text" placeholder="Alex Morgan" required minlength="2"><label for="email">Email
+                    address</label><input id="email" name="email" type="email" placeholder="alex@example.com"
+                    required><label for="message">Message</label><textarea id="message" name="message" rows="5"
+                    placeholder="Tell us what you're building..." required minlength="10"></textarea><button
+                    class="button primary" type="submit">Send message ↗</button>
+                <p class="form-message" id="form-message" role="status"></p>
+            </form>
+        </section>
+    </main>
+    <footer><a class="logo" href="index.html">Launch<span>Pad</span></a>
+        <p>Made for learning, testing, and shipping.</p><small>© <span class="year"></span> LaunchPad Demo</small>
+    </footer>
+</body>
+
+</html>

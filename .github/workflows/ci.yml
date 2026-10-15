@@ -1,0 +1,39 @@
+name: Website CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate static website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check required website files
+        run: |
+          test -f index.html
+          test -f about.html
+          test -f services.html
+          test -f projects.html
+          test -f contact.html
+          test -f assets/css/style.css
+          test -f assets/js/main.js
+
+      - name: Check page navigation links
+        run: |
+          for page in index.html about.html services.html projects.html contact.html; do
+            grep -q 'href="index.html"' "$page"
+            grep -q 'href="about.html"' "$page"
+            grep -q 'href="services.html"' "$page"
+            grep -q 'href="projects.html"' "$page"
+            grep -q 'href="contact.html"' "$page"
+          done
+
+      - name: Show files being checked
+        run: find . -maxdepth 3 -type f -not -path './.git/*' | sort
