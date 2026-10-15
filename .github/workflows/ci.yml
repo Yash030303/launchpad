@@ -21,7 +21,7 @@ jobs:
           test -f about.html
           test -f services.html
           test -f projects.html
-          test -f contact-wrong.html
+          test -f contact.html
           test -f assets/css/style.css
           test -f assets/js/main.js
 
