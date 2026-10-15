@@ -17,6 +17,8 @@ jobs:
 
       - name: Check required website files
         run: |
+          set -eu
+
           test -f index.html
           test -f about.html
           test -f services.html
@@ -25,15 +27,37 @@ jobs:
           test -f assets/css/style.css
           test -f assets/js/main.js
 
+          echo "All required website files exist."
+
       - name: Check page navigation links
         run: |
+          set -eu
+
           for page in index.html about.html services.html projects.html contact.html; do
-            grep -q 'href="index.html"' "$page"
-            grep -q 'href="about.html"' "$page"
-            grep -q 'href="services.html"' "$page"
-            grep -q 'href="projects.html"' "$page"
-            grep -q 'href="contact.html"' "$page"
+            echo "Checking navigation in $page"
+
+            grep -Fq 'href="index.html"' "$page"
+            grep -Fq 'href="about.html"' "$page"
+            grep -Fq 'href="services.html"' "$page"
+            grep -Fq 'href="projects.html"' "$page"
+            grep -Fq 'href="contact.html"' "$page"
           done
+
+          echo "All page navigation links are present."
+
+      - name: Check CSS and JavaScript references
+        run: |
+          set -eu
+
+          for page in index.html about.html services.html projects.html contact.html; do
+            echo "Checking assets in $page"
+
+            grep -Fq 'assets/css/style.css' "$page"
+            grep -Fq 'assets/js/main.js' "$page"
+          done
+
+          echo "CSS and JavaScript references are present."
+
 
       - name: Show files being checked
         run: find . -maxdepth 3 -type f -not -path './.git/*' | sort
