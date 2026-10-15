@@ -18,7 +18,7 @@ jobs:
       - name: Check required website files
         run: |
           test -f index.html
-          test -f about.html
+          test -f about-wrong.html
           test -f services.html
           test -f projects.html
           test -f contact.html
