@@ -35,3 +35,10 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/launchpad:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/launchpad:${{ github.sha }}
+
+      - name: Deploy to Render
+        run: |
+          curl --fail --silent --show-error \
+            --request POST \
+            "${{ secrets.RENDER_DEPLOY_HOOK }}"
+
